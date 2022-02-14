@@ -1,0 +1,571 @@
+@import "reset";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;0,700;0,800;0,900;1,600;1,800;1,900&display=swap');
+$FirstColor: rgb(255, 255, 255);
+$SecondColor: rgb(0, 0, 0);
+$ThridColor: #efefef;
+$FourthColor: rgb(73, 73, 73);
+$FifthColor:rgb(185, 2, 2);
+$breakpoint-mobile: 670px;
+$heading-desktop: 6em;
+$heading-mobile: 3.3em;
+
+
+@mixin weiing {
+    background: rgb(207, 205, 208);
+    background: linear-gradient(270deg, rgba(207, 205, 208, 1) 0%, rgba(220, 140, 141, 1) 100%);
+}
+
+@mixin lanjan {
+    background: rgb(113, 158, 197);
+    background: linear-gradient(90deg, rgba(113, 158, 197, 1) 0%, rgba(212, 224, 238, 1) 100%);
+}
+
+@mixin jiangcheng {
+    background: rgb(169, 165, 202);
+    background: linear-gradient(90deg, rgba(169, 165, 202, 1) 0%, rgba(218, 220, 233, 1) 100%);
+}
+
+@mixin yanli {
+    background: rgb(169, 137, 178);
+    background: linear-gradient(90deg, rgba(169, 137, 178, 1) 0%, rgba(227, 212, 233, 1) 100%);
+}
+
+@mixin wenqing {
+    background: rgb(154,103,112);
+background: linear-gradient(90deg, rgba(154,103,112,1) 0%, rgba(191,170,170,1) 100%);
+}
+
+@mixin wenning {
+    background: rgb(75, 74, 80);
+    background: linear-gradient(90deg, rgba(75, 74, 80, 1) 0%, rgba(207, 207, 207, 1) 100%);
+}
+
+@mixin guangyao {
+    background: rgb(188, 160, 113);
+    background: linear-gradient(90deg, rgba(188, 160, 113, 1) 0%, rgba(226, 219, 203, 1) 100%);
+}
+
+@mixin xueyang {
+    background: rgb(100, 107, 126);
+    background: linear-gradient(90deg, rgba(100, 107, 126, 1) 0%, rgba(202, 203, 208, 1) 100%);
+}
+
+@mixin xichen {
+    background: rgb(99, 142, 197);
+    background: linear-gradient(90deg, rgba(99, 142, 197, 1) 0%, rgba(181, 199, 223, 1) 100%);
+}
+@mixin headingtext {
+    animation-name: texttext;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    // animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes texttext {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+    
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+
+.main-header {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 65px;
+    width: 100vw;
+    padding: 0 4vw ;
+    color: #000;
+    background-color: $ThridColor;
+    z-index: 10;
+    transition: 0.4s ease-out;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        text-transform: uppercase;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        background-color: $ThridColor;
+
+        .nav-link {
+            padding: 0px;
+            a {
+                font-size: 1em;
+                padding: 8px 16px;
+                color: $SecondColor;
+            }
+
+            a:hover {
+                color: $FirstColor;
+                background-color: $SecondColor;
+                border-radius: 20px;
+            }
+        }
+    }
+
+    .menu-icon {
+        position: relative;
+        padding: 26px 10px;
+        cursor: pointer;
+        z-index: 1;
+        display: none;
+
+    
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+    &.scrolled {
+        height: 50px;
+        background-color: $SecondColor;
+        color: $FirstColor;
+
+
+    }
+
+    &.scroll-active {
+        box-shadow: 0px 2px 4px $SecondColor;
+   
+    }
+
+
+
+
+
+    @media screen and(max-width: $breakpoint-mobile) {
+        .menu-icon {
+            display: block;
+            z-index: 10;
+        }
+
+        .nav-links {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 10rem 0;
+            width: 100vw;
+            height: 100vh;
+            font-size: 2rem;
+            color: $FirstColor;
+            transition:
+                opacity 0.8s 0.5s,
+                clip-path 1s 0.5s;
+            background-color: $SecondColor;
+            clip-path: circle(0px at top right);
+
+            .nav-link {
+                opacity: 0;
+                transform: translateX(100%);
+                width: 100%;
+                text-align: center;
+
+                a {
+                    display: block;
+                    margin: 0px 50px;
+                    padding: 2rem 20px;
+                    color: $FirstColor;
+                }
+                a:hover {
+                    background-color: $SecondColor;
+                    border-radius: 0px;
+                    border-bottom: 3px solid $FirstColor;
+                    
+                }
+            }
+        }
+
+        .menu-btn:checked~.nav-links {
+            opacity: 1;
+            clip-path: circle(100% at center);
+
+            .nav-link {
+                opacity: 1;
+                transform: translateX(0);
+                transition:
+                    opacity 0.1s ease-in-out 1s;
+                   
+                
+            }
+        }
+
+        .menu-btn:checked~.menu-icon {
+
+           
+            .fa-bars {
+                color: $FirstColor;
+
+               
+                &::before {
+                    color: $FirstColor;
+                }
+
+                &::after {
+                    color: $FirstColor;
+                }
+
+            }
+        }
+
+    }
+
+
+
+
+}
+
+#character {
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: $ThridColor;
+}
+
+.heading {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    padding-top: 20vh;
+    justify-content: flex-end;
+    align-items: flex-end;
+    box-sizing: border-box;
+
+    h1 {
+        text-align: center;
+        text-shadow: 2px 2px 4px $FourthColor;
+        font-size: $heading-desktop;
+        font-weight: bold;
+        color: $SecondColor;
+        @include headingtext()
+    }
+
+}
+
+.container {
+
+    padding: 0px 40px;
+    padding-bottom: 100px;
+    width: 100%;
+    box-sizing: border-box;
+
+    .card {
+        width: 50vw;
+        height: 100%;
+        border-radius: 16px;
+        position: relative;
+        background-color: $ThridColor;
+        justify-content: flex-start;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 40px;
+        border: 3px solid $FourthColor;
+        margin-bottom: 100px;
+        cursor: pointer;
+        box-sizing: border-box;
+        transition-duration: 0.5s;
+        .picture {
+            position: relative;
+            width: 100%;
+
+        
+            img {
+              
+                height: 80vh;
+                border-radius: 16px;
+                object-fit: cover;
+                object-position: center;
+                flex-grow: 1;
+            }
+        }
+
+        .content {
+            position: relative;
+         
+            padding: 20px;
+        
+            align-items: center;
+            justify-content: center;
+            color: $SecondColor;
+            visibility: hidden;
+            opacity: 0;
+          
+
+            transition: 0.5s ease-in-out;
+           
+            h3 {
+                text-align: center;
+                font-size: 2.5em;
+                margin-bottom: 30px;
+                font-weight: 600;
+                color: #73020C;
+            }
+
+            p {
+                text-align: start;
+                font-size: 1.3em;
+                line-height: 30px;
+            }
+        }
+    }
+
+    .card:hover {
+        width: 81vw;
+        height: 100%;
+        transition: 0.5s ease-in-out;
+
+        .content {
+            visibility: visible;
+            opacity: 1;
+           
+        }
+
+        @include weiing()
+    }
+
+    .secondcard {
+        // flex-direction: row-reverse;
+        @extend .card;
+        border: 3px solid $SecondColor;
+        width: 60vw;
+        .content{
+            h3{
+                color: #024673;
+            }
+        }
+
+    }
+
+    .secondcard:hover {
+
+        @include lanjan()
+    }
+
+    .thridcard {
+        @extend .card;
+        width: 70vw;
+        .content{
+            h3{
+                color: #2d0273;
+            }
+        }
+    }
+
+    .thridcard:hover {
+
+        @include jiangcheng()
+    }
+
+    .fourthcard {
+        @extend .secondcard;
+        .content{
+            h3{
+                color: #73026a;
+            }
+        }
+    }
+
+    .fourthcard:hover {
+
+        @include yanli()
+    }
+
+    .fifthcard {
+        @extend .card;
+        .content{
+            h3{
+                color: #772424;
+            }
+        }
+
+    }
+
+    .fifthcard:hover {
+        @include wenqing()
+    }
+
+    .sixthcard {
+        @extend .secondcard;
+        .content{
+            h3{
+                color: #3E3D43;
+            }
+        }
+    }
+
+    .sixthcard:hover {
+        @include wenning()
+    }
+
+    .seventhcard {
+        @extend .thridcard;
+        .content{
+            h3{
+                color: #734b02;
+            }
+        }
+    }
+
+    .seventhcard:hover {
+        @include guangyao()
+    }
+
+
+    .ninthcard {
+        @extend .card;
+        margin-bottom: 0px;
+        .content{
+            h3{
+                color: #023c73;
+            }
+        }
+    }
+
+    .ninthcard:hover {
+        @include xichen()
+    }
+
+    .reveal {
+        position: relative;
+        transform: translateY(120px);
+        opacity: 0;
+        transition: 1s all ease;
+    }
+
+    .reveal.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+    .heading {
+        height: 30vh;
+
+        h1 {
+            // padding: 100px;
+            text-align: center;
+            font-size: $heading-mobile;
+            font-weight: bold;
+            color: $SecondColor;
+        }
+
+    }
+
+    .container {
+        padding: 0px 50px 100px 50px;
+        
+        .card {
+            width: 100%;
+            flex-direction: column;
+            margin: 0 auto;
+            margin-top: 40px;
+
+            .picture {
+                position: relative;
+                width: 100%;
+                // height: 50%;
+
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 16px;
+                    object-fit: cover;
+                    object-position: center;
+                    flex-grow: 1;
+                }
+
+            }
+
+            .content {
+                visibility: visible;
+                opacity: 1;
+
+                h3 {
+                    margin-top: 40px;
+                    font-size: 2em;
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    font-size: 1.1em;
+                    line-height: 30px;
+
+                }
+            }
+
+        }
+
+        .card:hover {
+            width: 100%;
+        }
+    }
+}
+
+footer{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $SecondColor;
+    padding: 20px 50px;
+
+    .copyright{
+        i{
+            color: $FirstColor;
+            font-size: 1em;
+    
+        }
+       
+    }
+    .social{
+        i{
+            color: $FirstColor;
+            margin-left: 16px
+        }
+        i:hover{
+            color: $FifthColor;
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-mobile){
+    footer{
+        padding: 20px 35px;
+    }
+    
+}

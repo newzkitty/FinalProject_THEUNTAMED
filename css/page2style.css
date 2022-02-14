@@ -1,0 +1,564 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;0,700;0,800;0,900;1,600;1,800;1,900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@-webkit-keyframes texttext {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes texttext {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.main-header {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 65px;
+  width: 100vw;
+  padding: 0 4vw;
+  color: #000;
+  background-color: #efefef;
+  z-index: 10;
+  -webkit-transition: 0.4s ease-out;
+  transition: 0.4s ease-out;
+}
+
+.main-header a {
+  text-decoration: none;
+  color: inherit;
+  text-transform: uppercase;
+}
+
+.main-header .nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  background-color: #efefef;
+}
+
+.main-header .nav-links .nav-link {
+  padding: 0px;
+}
+
+.main-header .nav-links .nav-link a {
+  font-size: 1em;
+  padding: 8px 16px;
+  color: black;
+}
+
+.main-header .nav-links .nav-link a:hover {
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+}
+
+.main-header .menu-icon {
+  position: relative;
+  padding: 26px 10px;
+  cursor: pointer;
+  z-index: 1;
+  display: none;
+}
+
+.main-header .menu-btn {
+  display: none;
+}
+
+.main-header.scrolled {
+  height: 50px;
+  background-color: black;
+  color: white;
+}
+
+.main-header.scroll-active {
+  -webkit-box-shadow: 0px 2px 4px black;
+          box-shadow: 0px 2px 4px black;
+}
+
+@media screen and (max-width: 670px) {
+  .main-header .menu-icon {
+    display: block;
+    z-index: 10;
+  }
+  .main-header .nav-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 10rem 0;
+    width: 100vw;
+    height: 100vh;
+    font-size: 2rem;
+    color: white;
+    -webkit-transition: opacity 0.8s 0.5s, -webkit-clip-path 1s 0.5s;
+    transition: opacity 0.8s 0.5s, -webkit-clip-path 1s 0.5s;
+    transition: opacity 0.8s 0.5s, clip-path 1s 0.5s;
+    transition: opacity 0.8s 0.5s, clip-path 1s 0.5s, -webkit-clip-path 1s 0.5s;
+    background-color: black;
+    -webkit-clip-path: circle(0px at top right);
+            clip-path: circle(0px at top right);
+  }
+  .main-header .nav-links .nav-link {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    width: 100%;
+    text-align: center;
+  }
+  .main-header .nav-links .nav-link a {
+    display: block;
+    margin: 0px 50px;
+    padding: 2rem 20px;
+    color: white;
+  }
+  .main-header .nav-links .nav-link a:hover {
+    background-color: black;
+    border-radius: 0px;
+    border-bottom: 3px solid white;
+  }
+  .main-header .menu-btn:checked ~ .nav-links {
+    opacity: 1;
+    -webkit-clip-path: circle(100% at center);
+            clip-path: circle(100% at center);
+  }
+  .main-header .menu-btn:checked ~ .nav-links .nav-link {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-transition: opacity 0.1s ease-in-out 1s;
+    transition: opacity 0.1s ease-in-out 1s;
+  }
+  .main-header .menu-btn:checked ~ .menu-icon .fa-bars {
+    color: white;
+  }
+  .main-header .menu-btn:checked ~ .menu-icon .fa-bars::before {
+    color: white;
+  }
+  .main-header .menu-btn:checked ~ .menu-icon .fa-bars::after {
+    color: white;
+  }
+}
+
+#character {
+  position: relative;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #efefef;
+}
+
+.heading {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  padding-top: 20vh;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.heading h1 {
+  text-align: center;
+  text-shadow: 2px 2px 4px #494949;
+  font-size: 6em;
+  font-weight: bold;
+  color: black;
+  -webkit-animation-name: texttext;
+          animation-name: texttext;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  transform-box: fill-box;
+}
+
+.container {
+  padding: 0px 40px;
+  padding-bottom: 100px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container .card, .container .secondcard, .container .fourthcard, .container .sixthcard, .container .thridcard, .container .seventhcard, .container .fifthcard, .container .ninthcard {
+  width: 50vw;
+  height: 100%;
+  border-radius: 16px;
+  position: relative;
+  background-color: #efefef;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px;
+  border: 3px solid #494949;
+  margin-bottom: 100px;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+.container .card .picture, .container .secondcard .picture, .container .fourthcard .picture, .container .sixthcard .picture, .container .thridcard .picture, .container .seventhcard .picture, .container .fifthcard .picture, .container .ninthcard .picture {
+  position: relative;
+  width: 100%;
+}
+
+.container .card .picture img, .container .secondcard .picture img, .container .fourthcard .picture img, .container .sixthcard .picture img, .container .thridcard .picture img, .container .seventhcard .picture img, .container .fifthcard .picture img, .container .ninthcard .picture img {
+  height: 80vh;
+  border-radius: 16px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.container .card .content, .container .secondcard .content, .container .fourthcard .content, .container .sixthcard .content, .container .thridcard .content, .container .seventhcard .content, .container .fifthcard .content, .container .ninthcard .content {
+  position: relative;
+  padding: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: black;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.container .card .content h3, .container .secondcard .content h3, .container .fourthcard .content h3, .container .sixthcard .content h3, .container .thridcard .content h3, .container .seventhcard .content h3, .container .fifthcard .content h3, .container .ninthcard .content h3 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #73020C;
+}
+
+.container .card .content p, .container .secondcard .content p, .container .fourthcard .content p, .container .sixthcard .content p, .container .thridcard .content p, .container .seventhcard .content p, .container .fifthcard .content p, .container .ninthcard .content p {
+  text-align: start;
+  font-size: 1.3em;
+  line-height: 30px;
+}
+
+.container .card:hover, .container .secondcard:hover, .container .fourthcard:hover, .container .sixthcard:hover, .container .thridcard:hover, .container .seventhcard:hover, .container .fifthcard:hover, .container .ninthcard:hover {
+  width: 81vw;
+  height: 100%;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  background: #cfcdd0;
+  background: -webkit-gradient(linear, right top, left top, from(#cfcdd0), to(#dc8c8d));
+  background: linear-gradient(270deg, #cfcdd0 0%, #dc8c8d 100%);
+}
+
+.container .card:hover .content, .container .secondcard:hover .content, .container .fourthcard:hover .content, .container .sixthcard:hover .content, .container .thridcard:hover .content, .container .seventhcard:hover .content, .container .fifthcard:hover .content, .container .ninthcard:hover .content {
+  visibility: visible;
+  opacity: 1;
+}
+
+.container .secondcard, .container .fourthcard, .container .sixthcard {
+  border: 3px solid black;
+  width: 60vw;
+}
+
+.container .secondcard .content h3, .container .fourthcard .content h3, .container .sixthcard .content h3 {
+  color: #024673;
+}
+
+.container .secondcard:hover, .container .fourthcard:hover, .container .sixthcard:hover {
+  background: #719ec5;
+  background: -webkit-gradient(linear, left top, right top, from(#719ec5), to(#d4e0ee));
+  background: linear-gradient(90deg, #719ec5 0%, #d4e0ee 100%);
+}
+
+.container .thridcard, .container .seventhcard {
+  width: 70vw;
+}
+
+.container .thridcard .content h3, .container .seventhcard .content h3 {
+  color: #2d0273;
+}
+
+.container .thridcard:hover, .container .seventhcard:hover {
+  background: #a9a5ca;
+  background: -webkit-gradient(linear, left top, right top, from(#a9a5ca), to(#dadce9));
+  background: linear-gradient(90deg, #a9a5ca 0%, #dadce9 100%);
+}
+
+.container .fourthcard .content h3 {
+  color: #73026a;
+}
+
+.container .fourthcard:hover {
+  background: #a989b2;
+  background: -webkit-gradient(linear, left top, right top, from(#a989b2), to(#e3d4e9));
+  background: linear-gradient(90deg, #a989b2 0%, #e3d4e9 100%);
+}
+
+.container .fifthcard .content h3 {
+  color: #772424;
+}
+
+.container .fifthcard:hover {
+  background: #9a6770;
+  background: -webkit-gradient(linear, left top, right top, from(#9a6770), to(#bfaaaa));
+  background: linear-gradient(90deg, #9a6770 0%, #bfaaaa 100%);
+}
+
+.container .sixthcard .content h3 {
+  color: #3E3D43;
+}
+
+.container .sixthcard:hover {
+  background: #4b4a50;
+  background: -webkit-gradient(linear, left top, right top, from(#4b4a50), to(#cfcfcf));
+  background: linear-gradient(90deg, #4b4a50 0%, #cfcfcf 100%);
+}
+
+.container .seventhcard .content h3 {
+  color: #734b02;
+}
+
+.container .seventhcard:hover {
+  background: #bca071;
+  background: -webkit-gradient(linear, left top, right top, from(#bca071), to(#e2dbcb));
+  background: linear-gradient(90deg, #bca071 0%, #e2dbcb 100%);
+}
+
+.container .ninthcard {
+  margin-bottom: 0px;
+}
+
+.container .ninthcard .content h3 {
+  color: #023c73;
+}
+
+.container .ninthcard:hover {
+  background: #638ec5;
+  background: -webkit-gradient(linear, left top, right top, from(#638ec5), to(#b5c7df));
+  background: linear-gradient(90deg, #638ec5 0%, #b5c7df 100%);
+}
+
+.container .reveal {
+  position: relative;
+  -webkit-transform: translateY(120px);
+          transform: translateY(120px);
+  opacity: 0;
+  -webkit-transition: 1s all ease;
+  transition: 1s all ease;
+}
+
+.container .reveal.active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+}
+
+@media screen and (max-width: 670px) {
+  .heading {
+    height: 30vh;
+  }
+  .heading h1 {
+    text-align: center;
+    font-size: 3.3em;
+    font-weight: bold;
+    color: black;
+  }
+  .container {
+    padding: 0px 50px 100px 50px;
+  }
+  .container .card, .container .secondcard, .container .fourthcard, .container .sixthcard, .container .thridcard, .container .seventhcard, .container .fifthcard, .container .ninthcard {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+  .container .card .picture, .container .secondcard .picture, .container .fourthcard .picture, .container .sixthcard .picture, .container .thridcard .picture, .container .seventhcard .picture, .container .fifthcard .picture, .container .ninthcard .picture {
+    position: relative;
+    width: 100%;
+  }
+  .container .card .picture img, .container .secondcard .picture img, .container .fourthcard .picture img, .container .sixthcard .picture img, .container .thridcard .picture img, .container .seventhcard .picture img, .container .fifthcard .picture img, .container .ninthcard .picture img {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .container .card .content, .container .secondcard .content, .container .fourthcard .content, .container .sixthcard .content, .container .thridcard .content, .container .seventhcard .content, .container .fifthcard .content, .container .ninthcard .content {
+    visibility: visible;
+    opacity: 1;
+  }
+  .container .card .content h3, .container .secondcard .content h3, .container .fourthcard .content h3, .container .sixthcard .content h3, .container .thridcard .content h3, .container .seventhcard .content h3, .container .fifthcard .content h3, .container .ninthcard .content h3 {
+    margin-top: 40px;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  .container .card .content p, .container .secondcard .content p, .container .fourthcard .content p, .container .sixthcard .content p, .container .thridcard .content p, .container .seventhcard .content p, .container .fifthcard .content p, .container .ninthcard .content p {
+    font-size: 1.1em;
+    line-height: 30px;
+  }
+  .container .card:hover, .container .secondcard:hover, .container .fourthcard:hover, .container .sixthcard:hover, .container .thridcard:hover, .container .seventhcard:hover, .container .fifthcard:hover, .container .ninthcard:hover {
+    width: 100%;
+  }
+}
+
+footer {
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: black;
+  padding: 20px 50px;
+}
+
+footer .copyright i {
+  color: white;
+  font-size: 1em;
+}
+
+footer .social i {
+  color: white;
+  margin-left: 16px;
+}
+
+footer .social i:hover {
+  color: #b90202;
+}
+
+@media screen and (max-width: 670px) {
+  footer {
+    padding: 20px 35px;
+  }
+}
+/*# sourceMappingURL=page2style.css.map */
